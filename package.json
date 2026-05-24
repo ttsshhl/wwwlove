@@ -1,0 +1,19 @@
+{
+  "name": "wwwlove-server",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Бэкенд WwwLove: привязка пары и обмен ответами",
+  "main": "src/server.js",
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "scripts": {
+    "start": "node --experimental-sqlite src/server.js",
+    "dev": "node --watch --experimental-sqlite src/server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.0",
+    "nanoid": "^5.0.7"
+  }
+}
