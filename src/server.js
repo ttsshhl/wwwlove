@@ -68,7 +68,7 @@ app.post("/api/pair/join", (req, res) => {
   if (!deviceId || !code) return res.status(400).json({ error: "deviceId and code required" });
   const u = ensureUser(deviceId);
 
-  const pair = db.prepare("SELECT * FROM pairs WHERE code = ?").get(String(code).toUpperCase());
+  const pair = db.prepare("SELECT * FROM pairs WHERE code = ?").get(String(code).trim());
   if (!pair) return res.status(404).json({ error: "Код не найден" });
   if (pair.user_a === u.id) return res.status(400).json({ error: "Это ваш собственный код" });
   if (pair.user_b && pair.user_b !== u.id) return res.status(409).json({ error: "К этой паре уже кто-то привязан" });
